@@ -1,0 +1,9 @@
+# apply config (in the same folder) to GCP
+# dinamically detect state
+terraform apply
+
+# create plan (model fromt the current state to desired state)
+terraform plan NOME_PIANO
+
+# apply a plan
+Terraform apply NOME_PIANO
