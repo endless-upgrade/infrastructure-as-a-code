@@ -26,15 +26,10 @@ resource "google_compute_instance" "worker" {
    }
  }
 
- provisioner "local-exec" { 
-  #command = "sleep 90; ansible-playbook -i '${google_compute_instance.worker.name},' --private-key=~/.ssh/ansible_rsa /opt/ansible/worker.yml -e 'ansible_ssh_user=dario_pasquali93' -e 'host_key_checking=False'"
-  command = "sleep 90; ansible -i '${google_compute_instance.worker.name},'
-   all --private-key=ssh/private/key/path
-   -m ping
-   -e 'ansible_ssh_user=dario_pasquali93'
-   -e 'host_key_checking=False'"
- }
-}
+# provisioner "local-exec" { 
+#  command = "sleep 90; ansible -i '${google_compute_instance.worker.name},' all --private-key=ssh/private/key/path -m ping -e 'ansible_ssh_user=dario_pasquali93' -e 'host_key_checking=False'" 
+#  }
+#}
 
 output "worker" {
  value = "${google_compute_instance.worker.self_link}"
